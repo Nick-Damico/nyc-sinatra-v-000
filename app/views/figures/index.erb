@@ -13,17 +13,19 @@
     <% Figure.all.each do |figure| %>
     <tr>
       <td><%= figure.name %></td>
-      <td><% if !figure.titles.empty? %>
-              <%= figure.titles.last.name %>
-             <% else %>
-                <%= "N/A" %>
-             <% end %>
+      <td>
+        <% if !figure.titles.empty? %>
+          <%= figure.titles.last.name %>
+        <% else %>
+          <%= "N/A" %>
+        <% end %>
       </td>
-      <td><% if !figure.landmarks.empty? %>
-              <%= figure.landmarks.last.name %>
-             <% else %>
-                <%= "N/A" %>
-             <% end %>
+      <td>
+        <% if !figure.landmarks.empty? %>
+          <%= figure.landmarks.last.name %>
+        <% else %>
+          <%= "N/A" %>
+        <% end %>
       </td>
     </tr>
     <% end %>
