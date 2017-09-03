@@ -1,8 +1,30 @@
 <h1>NYC Landmarks:</h1>
 
-<ul>
-<% @landmarks.each do |l| %>
-  <li><%=l.name%> - <%=l.year_completed%></li>
-  <br />
-<% end %>
-</ul>
+<table border="1" cellpadding="6">
+  <thead>
+    <tr>
+      <th>Landmark</th>
+      <th>Year Completed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Inserts td for the figure row on each iteration -->
+    <% Landmark.all.each do |landmark| %>
+    <tr>
+      <td><%= landmark.name %></td>
+      <td><% if !!landmark.year_completed %>
+              <%= landmark.year_completed %>
+             <% else %>
+                <%= "N/A" %>
+             <% end %>
+      </td>
+    </tr>
+    <% end %>
+    <!-- End of Figure Table iteration -->
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3" style="text-align:center;">Historically Landmarks of NYC.</td>
+    </tr>
+  </tfoot>
+</table>

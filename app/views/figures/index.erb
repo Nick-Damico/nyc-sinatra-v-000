@@ -1,7 +1,37 @@
 <h1>Landmark Figures</h1>
 
-<ul>
-  <% Figure.all.each do |fig| %>
-    <li><%= fig.name %></li>
-  <% end %>
-</ul>
+<table border="1" cellpadding="6">
+  <thead>
+    <tr>
+      <th>Figure</th>
+      <th>Title</th>
+      <th>Landmark</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Inserts td for the figure row on each iteration -->
+    <% Figure.all.each do |figure| %>
+    <tr>
+      <td><%= figure.name %></td>
+      <td><% if !figure.titles.empty? %>
+              <%= figure.titles.last.name %>
+             <% else %>
+                <%= "N/A" %>
+             <% end %>
+      </td>
+      <td><% if !figure.landmarks.empty? %>
+              <%= figure.landmarks.last.name %>
+             <% else %>
+                <%= "N/A" %>
+             <% end %>
+      </td>
+    </tr>
+    <% end %>
+    <!-- End of Figure Table iteration -->
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3" style="text-align:center;">Historically Figures of NYC.</td>
+    </tr>
+  </tfoot>
+</table>
